@@ -1,6 +1,7 @@
 import aws_cdk as cdk
 from constructs import Construct
 from aws_cdk.pipelines import CodePipeline, CodePipelineSource, ShellStep
+from my_pipeline.my_pipeline_app_stage import MyPipelineAppStage
 
 class MyPipelineStack(cdk.Stack):
 
@@ -16,3 +17,9 @@ class MyPipelineStack(cdk.Stack):
                                 "cdk synth"]
                         )
                     )
+        
+        # Stages accept a default env argument, which becomes the default environment for 
+        # the stacks inside it. (Stacks can still have their own environment specified. in this
+        # way to support multiple accounts).
+        pipeline.add_stage(MyPipelineAppStage(self, "test",
+            env=cdk.Environment(account="391604185808", region="us-west-2")))

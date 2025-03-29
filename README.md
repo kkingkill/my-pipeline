@@ -56,3 +56,10 @@ command.
  * `cdk docs`        open CDK documentation
 
 Enjoy!
+
+# commit and push
+git add --all
+git commit -m "initial commit"
+git push
+
+cdk deploy
