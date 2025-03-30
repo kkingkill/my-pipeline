@@ -63,3 +63,27 @@ git commit -m "initial commit"
 git push
 
 cdk deploy
+
+# add eks cluster
+pip install -r requirements.txt
+
+
+
+
+# Clean up and reinstall dependencies:
+# Remove existing virtual environment (if any)
+rm -rf .venv
+
+# Create new virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+source .venv/bin/activate  # On Unix/MacOS
+# or
+.venv\Scripts\activate     # On Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install the CDK CLI globally (if not already installed)
+npm install -g aws-cdk
