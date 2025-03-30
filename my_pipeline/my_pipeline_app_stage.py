@@ -7,3 +7,5 @@ class MyPipelineAppStage(cdk.Stage):
         super().__init__(scope, construct_id, **kwargs)
 
         lambdaStack = MyLambdaStack(self, "LambdaStack")
+
+        eks_stack = EksStack(self, "EksStack")
