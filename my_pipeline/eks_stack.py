@@ -8,7 +8,15 @@ class EksStack(cdk.Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Create VPC
-        vpc = ec2.Vpc(self, "EksVpc", max_azs=2)
+        vpc = ec2.Vpc(self, "EksVpc", 
+            max_azs=2,
+            nat_gateway=1)
+
+        # # Create the kubectl Layer
+        # kubectl_layer = lambda_.LayerVersion(self, "KubectlLayer",
+        #     code=lambda_.Code.from_asset('lambda/kubectl'),
+        #     compatible_runtimes=[lambda_.Runtime.PROVIDED_AL2]
+        # )
 
         # Create EKS Cluster
         cluster = eks.Cluster(self, "EksCluster",
@@ -19,4 +27,7 @@ class EksStack(cdk.Stack):
                 ec2.InstanceClass.T3,
                 ec2.InstanceSize.MEDIUM
             )
+            # kubectl_lambda_layer=kubectl_layer
+            #kubectl_layer=kubectl_layer
+            kubectl_layer=None  # Set to None if you don't need kubectl functionality
         )
