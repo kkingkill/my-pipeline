@@ -1,7 +1,7 @@
 import aws_cdk as cdk
 from constructs import Construct
 from my_pipeline.my_pipeline_lambda_stack import MyLambdaStack
-from eks_stack import EksStack
+from my_pipeline.eks_stack import EksStack
 
 class MyPipelineAppStage(cdk.Stage):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
