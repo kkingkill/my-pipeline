@@ -10,7 +10,7 @@ class EksStack(cdk.Stack):
         # Create VPC
         vpc = ec2.Vpc(self, "EksVpc", 
             max_azs=2,
-            nat_gateway=1)
+            nat_gateways=1)
 
         # # Create the kubectl Layer
         # kubectl_layer = lambda_.LayerVersion(self, "KubectlLayer",
