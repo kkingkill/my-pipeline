@@ -26,7 +26,7 @@ class EksStack(cdk.Stack):
             default_capacity_instance=ec2.InstanceType.of(
                 ec2.InstanceClass.T3,
                 ec2.InstanceSize.MEDIUM
-            )
+            ),
             # kubectl_lambda_layer=kubectl_layer
             #kubectl_layer=kubectl_layer
             kubectl_layer=None  # Set to None if you don't need kubectl functionality
